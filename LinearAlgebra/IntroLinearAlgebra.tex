@@ -1,0 +1,99 @@
+\documentclass[12pt, a4paper]{ctexart}
+
+% --- 1. 数学核心宏包 📐 ---
+\usepackage{amsmath, amssymb, amsthm, amsfonts}
+% --- 2. 页面与超链接设置 🔗 ---
+\usepackage{geometry}  % 保持默认宽边距，不额外设置则默认为标准边距
+\usepackage[colorlinks=true, linkcolor=black]{hyperref}
+% --- 3. 其它必要包 ---
+\usepackage{enumitem}
+% --- 4. 封面信息预设 ---
+\title{Note For INTRODUCTION TO LINEAR ALGEBRA}
+\author{Jaehaerys Wang}
+\date{\today}
+
+% --- 正文区 ---
+\begin{document}
+
+% 自动生成封面
+\maketitle
+\newpage
+
+% 自动生成目录
+\tableofcontents
+\newpage
+
+\section{Chapter 1: Introduction to Vectors}
+
+% 写法示例
+\newpage
+\section*{Examples}
+\subsection*{逻辑结构与列表}
+\begin{itemize} % label = $\bullet$ 可以自定义无序列表符号
+    \item 这是一个无序列表项。
+    \item 这是另一个无序列表项。
+    \begin{itemize}
+        \item 这是一个嵌套的无序列表项。
+        \item 这是另一个嵌套的无序列表项。
+    \end{itemize}
+\end{itemize}
+\begin{enumerate} % label = \arabic* 可以自定义有序列表符号
+    \item 这是一个有序列表项。
+    \begin{itemize}[nosep] % 嵌套无序列表，紧凑格式
+        \item 这是一个嵌套的无序列表项。
+        \item 这是另一个嵌套的无序列表项。
+    \end{itemize}
+    \item 这是另一个有序列表项。
+    \begin{enumerate}[label=性质 \arabic*:] % 嵌套有序列表
+        \item 这是一个嵌套的有序列表项。
+        \item 这是另一个嵌套的有序列表项。
+    \end{enumerate}
+\end{enumerate}
+\subsection*{数学语境与基础记号}
+% 在 LaTeX 中，排版数学内容主要分为两种模式：行内模式 (Inline Math)：公式嵌入在文字中间，使用 $ ... $。例如：设 $n$ 维向量 $\mathbf{x}$。行间模式 (Display Math)：公式独立成行且居中，使用 \[ ... \]。
+$\mathbb{R} \in \forall \subseteq \mathbb{R}^n \space \mathbf{v} \vec{v} $ \\
+\subsection*{矩阵与方程组排版}
+% 所有的矩阵环境都遵循相同的内部逻辑：
+% 使用 & 来分隔同一行中的不同列。
+% 使用 \\ 来换行，分隔不同的行。
+% 无括号 (no brackets)
+$ \begin{matrix} 1&2\\3&4 \end{matrix} $
+% 圆括号 (parentheses)
+$ \begin{pmatrix} 1&2\\3&4 \end{pmatrix} $
+% 方括号 (brackets)
+$ \begin{bmatrix} 1&2\\3&4 \end{bmatrix} $
+% 单竖线 (vertical bars，常用于行列式)
+$ \begin{vmatrix} 1&2\\3&4 \end{vmatrix} $
+% 双竖线 (double vertical bars，常用于范数)
+$ \begin{Vmatrix} 1&2\\3&4 \end{Vmatrix} $ \\
+% 省略号的使用
+% 水平省略号 (horizontal ellipsis)
+$ \begin{bmatrix} 1&2&\cdots&n\\0
+    &0&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&0 \end{bmatrix} $
+% 垂直省略号 (vertical ellipsis)
+$ \begin{bmatrix} 1&2&\cdots&n\\0
+    &0&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&0 \end{bmatrix} $
+% 对角线省略号 (diagonal ellipsis)
+$ \begin{bmatrix} 1&2&\cdots&n\\0
+    &0&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&0 \end{bmatrix} $
+% 方程组与大括号
+$ \begin{cases} x+y=1\\ x-y=2 \end{cases} $
+% 高斯消元与步骤对齐
+\begin{align*}
+    \begin{bmatrix}
+        1 & 2 \\
+        2 & 5
+    \end{bmatrix} 
+    &\xrightarrow{R_2 - 2R_1} % 在箭头处对齐
+    \begin{bmatrix}
+        1 & 2 \\
+        0 & 1
+    \end{bmatrix} \\
+    &\xrightarrow{R_1 - 2R_2} % 下一行的箭头也会跟上面对齐
+    \begin{bmatrix}
+        1 & 0 \\
+        0 & 1
+    \end{bmatrix}
+\end{align*}
+
+\end{document}
