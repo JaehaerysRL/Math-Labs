@@ -6,7 +6,7 @@
 \usepackage{tikz} % nicematrix 内部绘图需要
 \usetikzlibrary{fit,patterns,arrows.meta,decorations.pathmorphing}
 % --- 2. 页面与超链接设置 🔗 ---
-\usepackage{geometry}  % 保持默认宽边距，不额外设置则默认为标准边距
+\usepackage{geometry}  % 保持默认宽边距, 不额外设置则默认为标准边距
 \usepackage[colorlinks=true, linkcolor=black]{hyperref}
 % --- 3. 其它必要包 ---
 \usepackage{enumitem} % 用于自定义列表环境
@@ -20,7 +20,7 @@
 \author{Jaehaerys Wang}
 \date{\today}
 % --- 5. 内容预设 ---
-% 定义冷色调：冰川蓝
+% 定义冷色调:冰川蓝
 \definecolor{CoolBlueFrame}{HTML}{4A90E2} % 深蓝色边框
 \definecolor{CoolBlueBack}{HTML}{F0F7FF}  % 极浅蓝背景
 % 章节综述
@@ -35,26 +35,26 @@
     boxed title style={colback=CoolBlueFrame, sharp corners},
     title={#1}, % 传入章节标题
     top=5mm,    % 为悬浮标题留出顶部空间
-    arc=0mm,    % 喜欢硬朗风格可以用直角，若要圆润可改为 2mm
+    arc=0mm,    % 喜欢硬朗风格可以用直角, 若要圆润可改为 2mm
     segmentation style={draw=CoolBlueFrame!50, dashed, line width=0.6pt},
     shadow={2mm}{-1mm}{0mm}{black!10!white} % 添加一个简单的阴影
 }
 % --- 文本强调命令 ---
-% 1. 重要考点：加粗且标红
+% 1. 重要考点:加粗且标红
 \newcommand{\important}[1]{\textbf{\textcolor{red}{#1}}}
-% 2. 核心术语：加粗且蓝色(用于定义、概念名)
+% 2. 核心术语:加粗且蓝色(用于定义、概念名)
 \newcommand{\term}[1]{\textbf{\textcolor{blue!80!black}{#1}}}
-% 3. 警示/注意：橙色背景(使用 \colorbox)
+% 3. 警示/注意:橙色背景(使用 \colorbox)
 \newcommand{\alert}[1]{\colorbox{orange!20}{\textbf{#1}}}
-% 4. 单纯强调：仅加粗(适用于定理、证明等标题)
+% 4. 单纯强调:仅加粗(适用于定理、证明等标题)
 \newcommand{\emphb}[1]{\textbf{#1}}
 % --- 数学模式强调命令 ---
-% 5. 向量/矩阵加粗：统一使用 \mathbf
-% 建议：定义为 \vvc (vector) 以缩短输入
+% 5. 向量/矩阵加粗:统一使用 \mathbf
+% 建议:定义为 \vvc (vector) 以缩短输入
 \newcommand{\vvc}[1]{\mathbf{#1}}
-% 6. 希腊字母加粗：使用 bm 宏包
+% 6. 希腊字母加粗:使用 bm 宏包
 \newcommand{\vgb}[1]{\bm{#1}}
-% 7. 公式内高亮：给特定部分加颜色
+% 7. 公式内高亮:给特定部分加颜色
 \newcommand{\mhl}[1]{\textcolor{red!80!black}{#1}}
 
 % 取消所有段落的默认首行缩进
@@ -74,7 +74,7 @@
 \section{Chapter 1: Introduction to Vectors}
 % 章节综述
 \begin{chaptersummary}{向量引论}
-    本章主要为整个线性代数奠定了基础，其核心围绕向量的两个基本操作展开，并将其延伸到矩阵。
+    本章主要为整个线性代数奠定了基础, 其核心围绕向量的两个基本操作展开, 并将其延伸到矩阵。
     \tcbline % 虚线分割
     \begin{enumerate}[nosep]
         \item 向量与线性组合 (Vectors and Linear Combinations)
@@ -84,34 +84,34 @@
 \end{chaptersummary}
 
 \subsection{向量与线性组合 (Vectors and Linear Combinations)}
-\emphb{代数与几何表示}：向量不仅可以通过数字(分量)进行按位加减和标量乘法，也可以在几何上表示为带有方向和长度的箭头，向量加法可以通过“首尾相接”的平行四边形法则来可视化。\\
-\emphb{线性组合的空间}：对于三维空间中的三个向量 $u, v, w$ 及其所有可能的线性组合 $cu + dv + ew$：
+\emphb{代数与几何表示}: 向量不仅可以通过数字(分量)进行按位加减和标量乘法, 也可以在几何上表示为带有方向和长度的箭头, 向量加法可以通过“首尾相接”的平行四边形法则来可视化。\\
+\emphb{线性组合的空间}: 对于三维空间中的三个向量 $u, v, w$ 及其所有可能的线性组合 $cu + dv + ew$:
 \begin{enumerate}[nosep]
     \item 所有的组合 $cu$ 通常会填满一条穿过原点 $(0,0,0)$ 的\emphb{直线}。
     \item 所有的组合 $cu + dv$ 通常会填满一个穿过原点的\emphb{平面}。
     \item 所有的组合 $cu + dv + ew$ 通常会填满整个\emphb{三维空间}(除非第三个向量恰好落在前两个向量构成的平面内)。
 \end{enumerate}
-\important{线性代数的核心基础} ：线性代数的核心在于向量的两种基本运算：向量加法($v + w$)和标量乘法(用数字乘以向量，如 $cv$ 和 $dw$)。将这两种操作结合起来，就产生了线性代数中最重要的概念——\term{线性组合(Linear Combination)}，即 $cv + dw$。
+\important{线性代数的核心基础}: 线性代数的核心在于向量的两种基本运算:向量加法($v + w$)和标量乘法(用数字乘以向量, 如 $cv$ 和 $dw$)。将这两种操作结合起来, 就产生了线性代数中最重要的概念——\term{线性组合(Linear Combination)}, 即 $cv + dw$。
 
 \subsection{长度与点积 (Lengths and Dot Products)}
-\term{点积(Dot Product)}：两个向量的点积 $v \cdot w$ 是对应分量相乘后的总和($v_1w_1 + v_2w_2 + \dots$)。\\
-\emphb{垂直(Perpendicular)$|$正交(Orthogonal)}：当且仅当两个向量的点积为零($v \cdot w = 0$)时，这两个向量是垂直(正交)的，它们之间的夹角为90度。\\
-\emphb{长度(Length)与单位向量(Unit Vector)}：向量 $v$ 的长度 $\|v\|$ 是其自身点积的平方根，即 $\|v\| = \sqrt{v \cdot v}$。将任何非零向量除以它的长度($u = v / \|v\|$)，就能得到一个长度为 1 的单位向量。\\
-\emphb{夹角与余弦公式}：点积可以揭示两个向量之间的夹角 $\theta$。对于任何非零向量，余弦公式为 $\cos \theta = \frac{v \cdot w}{\|v\|\|w\|}$。\\
-\emphb{重要不等式}：
+\term{点积(Dot Product)}: 两个向量的点积 $v \cdot w$ 是对应分量相乘后的总和($v_1w_1 + v_2w_2 + \dots$)。\\
+\emphb{垂直(Perpendicular)$|$正交(Orthogonal)}: 当且仅当两个向量的点积为零($v \cdot w = 0$)时, 这两个向量是垂直(正交)的, 它们之间的夹角为90度。\\
+\emphb{长度(Length)与单位向量(Unit Vector)}: 向量 $v$ 的长度 $\|v\|$ 是其自身点积的平方根, 即 $\|v\| = \sqrt{v \cdot v}$。将任何非零向量除以它的长度($u = v / \|v\|$), 就能得到一个长度为 1 的单位向量。\\
+\emphb{夹角与余弦公式}: 点积可以揭示两个向量之间的夹角 $\theta$。对于任何非零向量, 余弦公式为 $\cos \theta = \frac{v \cdot w}{\|v\|\|w\|}$。\\
+\emphb{重要不等式}:
 \begin{itemize}[nosep]
-    \item \term{施瓦茨不等式(Schwarz inequality)}：$|v \cdot w| \le \|v\|\|w\|$。
-    \item \term{三角不等式(Triangle inequality)}：$\|v + w\| \le \|v\| + \|w\|$(两边之和大于等于第三边)。
+    \item \term{施瓦茨不等式(Schwarz inequality)}: $|v \cdot w| \le \|v\|\|w\|$。
+    \item \term{三角不等式(Triangle inequality)}: $\|v + w\| \le \|v\| + \|w\|$(两边之和大于等于第三边)。
 \end{itemize}
 
 \subsection{矩阵 (Matrices)}
-\term{矩阵(Matrix)}：矩阵是一个由数字排列成的矩形阵列，通常用大写字母(如 $A$)表示。矩阵的每一行和每一列都可以看作一个向量。\\
-\emphb{矩阵与向量的乘法}：矩阵 $A$ 乘以向量 $x$(即 $Ax$)的结果是一个新的向量，这个新向量是\emphb{矩阵 $\vvc{A}$ 各列的线性组合}，其中向量 $x$ 的分量($x_1, x_2, \dots$)正是该线性组合的系数。\\
-\term{线性方程组(Linear Equations)}：求解方程组 $Ax = b$ 实际上是一个逆向问题：寻找矩阵 $A$ 列向量的一种线性组合，使其结果恰好等于目标向量 $b$。\\
-\emphb{独立与相关(Independence and Dependence)}：矩阵列向量的线性关系决定了方程组的解的性质：
+\term{矩阵(Matrix)}: 矩阵是一个由数字排列成的矩形阵列, 通常用大写字母(如 $A$)表示。矩阵的每一行和每一列都可以看作一个向量。\\
+\emphb{矩阵与向量的乘法}: 矩阵 $A$ 乘以向量 $x$(即 $Ax$)的结果是一个新的向量, 这个新向量是\emphb{矩阵 $\vvc{A}$ 各列的线性组合}, 其中向量 $x$ 的分量($x_1, x_2, \dots$)正是该线性组合的系数。\\
+\term{线性方程组(Linear Equations)}: 求解方程组 $Ax = b$ 实际上是一个逆向问题:寻找矩阵 $A$ 列向量的一种线性组合, 使其结果恰好等于目标向量 $b$。\\
+\emphb{独立与相关(Independence and Dependence)}: 矩阵列向量的线性关系决定了方程组的解的性质:
 \begin{itemize}[nosep]
-    \item \term{线性无关(Independent)}：如果列向量不在同一个平面内，除了全零组合($0u + 0v + 0w = 0$)外，没有任何组合能产生零向量 $b=0$。此时矩阵可逆，$Ax = 0$ 只有唯一解。
-    \item \term{线性相关(Dependent)}：如果列向量共面，则存在非零的组合能够产生零向量。此时矩阵是奇异的(Singular)，$Ax = 0$ 有无数个解。
+    \item \term{线性无关(Independent)}: 如果列向量不在同一个平面内, 除了全零组合($0u + 0v + 0w = 0$)外, 没有任何组合能产生零向量 $b=0$。此时矩阵可逆, $Ax = 0$ 只有唯一解。
+    \item \term{线性相关(Dependent)}: 如果列向量共面, 则存在非零的组合能够产生零向量。此时矩阵是奇异的(Singular), $Ax = 0$ 有无数个解。
 \end{itemize}
 
 \end{document}
@@ -130,7 +130,7 @@
 % \end{itemize}
 % \begin{enumerate} % label = \arabic* 可以自定义有序列表符号
 %     \item 这是一个有序列表项。
-%     \begin{itemize}[nosep] % 嵌套无序列表，紧凑格式
+%     \begin{itemize}[nosep] % 嵌套无序列表, 紧凑格式
 %         \item 这是一个嵌套的无序列表项。
 %         \item 这是另一个嵌套的无序列表项。
 %     \end{itemize}
@@ -141,21 +141,21 @@
 %     \end{enumerate}
 % \end{enumerate}
 % \subsection*{数学语境与基础记号}
-% % 在 LaTeX 中，排版数学内容主要分为两种模式：行内模式 (Inline Math)：公式嵌入在文字中间，使用 $ ... $。例如：设 $n$ 维向量 $\mathbf{x}$。行间模式 (Display Math)：公式独立成行且居中，使用 \[ ... \]。
+% % 在 LaTeX 中, 排版数学内容主要分为两种模式:行内模式 (Inline Math):公式嵌入在文字中间, 使用 $ ... $。例如:设 $n$ 维向量 $\mathbf{x}$。行间模式 (Display Math):公式独立成行且居中, 使用 \[ ... \]。
 % $\mathbb{R} \in \forall \subseteq \mathbb{R}^n \space \mathbf{v} \vec{v} $ \\
 % \subsection*{矩阵与方程组排版}
-% % 所有的矩阵环境都遵循相同的内部逻辑：
+% % 所有的矩阵环境都遵循相同的内部逻辑:
 % % 使用 & 来分隔同一行中的不同列。
-% % 使用 \\ 来换行，分隔不同的行。
+% % 使用 \\ 来换行, 分隔不同的行。
 % % 无括号 (no brackets)
 % $ \begin{matrix} 1&2\\3&4 \end{matrix} $
 % % 圆括号 (parentheses)
 % $ \begin{pmatrix} 1&2\\3&4 \end{pmatrix} $
 % % 方括号 (brackets)
 % $ \begin{bmatrix} 1&2\\3&4 \end{bmatrix} $
-% % 单竖线 (vertical bars，常用于行列式)
+% % 单竖线 (vertical bars, 常用于行列式)
 % $ \begin{vmatrix} 1&2\\3&4 \end{vmatrix} $
-% % 双竖线 (double vertical bars，常用于范数)
+% % 双竖线 (double vertical bars, 常用于范数)
 % $ \begin{Vmatrix} 1&2\\3&4 \end{Vmatrix} $ \\
 % % 省略号的使用
 % % 水平省略号 (horizontal ellipsis)
@@ -188,7 +188,7 @@
 % \end{align*}
 % % 分块矩阵与虚线 (Block Matrices & Dashed Lines)
 % \[
-% \begin{pNiceMatrix}[vlines={2}, hlines={2}] % 在第 2 列后画竖线，第 2 行后画横线
+% \begin{pNiceMatrix}[vlines={2}, hlines={2}] % 在第 2 列后画竖线, 第 2 行后画横线
 %     a & b & c \\
 %     d & e & f \\
 %     g & h & i
@@ -209,13 +209,13 @@
 % \]
 % \subsection*{强调写法}
 % \term{特征值 (Eigenvalue)} 是线性代数中的核心概念。
-% 我们要牢记这个\important{判定准则}：只有方阵才有特征值。
+% 我们要牢记这个\important{判定准则}:只有方阵才有特征值。
 
-% \alert{注意：} 计算时不要漏掉特征多项式中的负号。
+% \alert{注意:} 计算时不要漏掉特征多项式中的负号。
 
-% 在方程 $\vvc{A}\vvc{x} = \vgb{\lambda}\vvc{x}$ 中：
+% 在方程 $\vvc{A}\vvc{x} = \vgb{\lambda}\vvc{x}$ 中:
 % \begin{itemize}
 %     \item $\vvc{A}$ 是一个矩阵；
-%     \item $\vvc{x}$ 是特征向量，记作 $\vvc{x} = [x_1, x_2, \dots, x_n]^T$；
-%     \item $\vgb{\lambda}$ 是特征值，我们通常求出 $\det(\vvc{A} - \mhl{\lambda}\vvc{I}) = 0$。
+%     \item $\vvc{x}$ 是特征向量, 记作 $\vvc{x} = [x_1, x_2, \dots, x_n]^T$；
+%     \item $\vgb{\lambda}$ 是特征值, 我们通常求出 $\det(\vvc{A} - \mhl{\lambda}\vvc{I}) = 0$。
 % \end{itemize}
